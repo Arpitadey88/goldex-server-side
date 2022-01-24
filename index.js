@@ -68,7 +68,7 @@ async function run() {
             res.json(orders);
         });
 
-        // Update Order
+        // Update Orders
         app.put("/statusUpdate/:id", async (req, res) => {
             const filter = { _id: ObjectId(req.params.id) };
             console.log(req.params.id);
