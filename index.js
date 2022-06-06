@@ -89,14 +89,20 @@ async function run() {
             res.json({ result, orders });
         });
 
-
-
         // Delete Order
         app.delete('/order/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) };
             const result = await orderCollection.deleteOne(query);
             res.json(result);
+        });
+
+        // Delete product by id Api
+        app.delete('/products/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: ObjectId(id) };
+            const result = await productsCollection.deleteOne(query);
+            res.send(result);
         });
 
         // Add Save Users
